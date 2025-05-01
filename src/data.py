@@ -9,7 +9,10 @@ import nltk
 from nltk.tokenize import sent_tokenize
 
 # Ensure NLTK resources are downloaded
-nltk.download('punkt', quiet=True)
+nltk.download('punkt', force=True)
+nltk.download('punkt_tab')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 class WildChatDataProcessor:
     """

@@ -8,6 +8,10 @@ from transformers import Trainer, DataCollatorForTokenClassification
 import nltk
 from nltk.tokenize import word_tokenize, sent_tokenize
 
+print(torch.cuda.is_available())
+print(torch.cuda.device_count())
+print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "No GPU")
+
 # Ensure nltk resources are downloaded
 nltk.download('punkt', quiet=True)
 
@@ -31,7 +35,7 @@ class FrameExtractor:
         
         # Determine device
         if device is None:
-            self.device = 'mps' if torch.mps.is_available() else 'cpu'
+            self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         else:
             self.device = device
             

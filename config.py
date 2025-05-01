@@ -18,7 +18,7 @@ class Config:
     
     # Dataset settings
     DATASET_NAME = "allenai/WildChat-1M"
-    USE_SAMPLE = True  # Set to False for full dataset
+    USE_SAMPLE = False  # Set to False for full dataset
     SAMPLE_SIZE = 1000  # Number of conversations to sample
     RANDOM_SEED = 42
     
@@ -26,7 +26,7 @@ class Config:
     METAPHOR_MODEL = "CreativeLang/metaphor_detection_roberta_seq"
     NOVEL_METAPHOR_MODEL = "CreativeLang/novel_metaphors"
     FRAME_MODEL = "liyucheng/frame_finder"
-    DEVICE = 'mps'  # None for auto-selection, or 'cuda', 'cpu', 'mps'
+    DEVICE = 'cuda'  # None for auto-selection, or 'cuda', 'cpu', 'mps'
     
     # Preprocessing settings
     MIN_SENTENCE_LENGTH = 5
@@ -34,8 +34,8 @@ class Config:
     FILTER_ENGLISH = True
     
     # Clustering settings
-    MIN_CLUSTERS = 2
-    MAX_CLUSTERS = 20
+    MIN_CLUSTERS = 10
+    MAX_CLUSTERS = 30
     OPTIMAL_CLUSTERS = None  # None for auto-detection
     
     # Analysis settings
