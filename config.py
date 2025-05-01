@@ -26,7 +26,7 @@ class Config:
     METAPHOR_MODEL = "CreativeLang/metaphor_detection_roberta_seq"
     NOVEL_METAPHOR_MODEL = "CreativeLang/novel_metaphors"
     FRAME_MODEL = "liyucheng/frame_finder"
-    DEVICE = 'cuda'  # None for auto-selection, or 'cuda', 'cpu', 'mps'
+    DEVICE = 'cpu'  # None for auto-selection, or 'cuda', 'cpu', 'mps'
     
     # Preprocessing settings
     MIN_SENTENCE_LENGTH = 5

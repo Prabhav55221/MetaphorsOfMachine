@@ -4,9 +4,9 @@ import time
 from datetime import datetime
 
 from config import Config
-from src.data import WildChatDataProcessor
-from src.frames import FrameExtractor
-from src.clustering import ClusterAnalyzer
+# from src.data import WildChatDataProcessor
+# from src.frames import FrameExtractor
+# from src.clustering import ClusterAnalyzer
 from src.analysis import DemographicAnalyzer
 
 def parse_args():
@@ -83,7 +83,7 @@ def process_data(force_reload=False):
     
     return references_df
 
-def extract_frames(references_df, skip_frames=False):
+def extract_frames(references_df, skip_frames=True):
     """
     Extract frames from AI references.
     
@@ -196,11 +196,16 @@ def analyze_patterns(skip_analysis=False):
 
 def main():
     """Main execution function."""
+
+    print('Hello Boss!')
+
     # Parse command-line arguments
     args = parse_args()
     
     # Set up configuration
     setup_config(args)
+
+    print('Bye Boss!')
     
     # Record start time
     overall_start_time = time.time()
@@ -208,15 +213,16 @@ def main():
     
     if not args.report_only:
         # Process dataset
-        references_df = process_data(force_reload=args.force_reload)
+        # references_df = process_data(force_reload=args.force_reload)
         
         # Extract frames
-        frames_df = extract_frames(references_df, skip_frames=args.skip_frames)
+        # frames_df = extract_frames(references_df, skip_frames=True)
         
         # Cluster frames
-        cluster_results = cluster_frames(skip_clustering=args.skip_clustering)
+        # cluster_results = cluster_frames(skip_clustering=args.skip_clustering)
         
         # Analyze patterns
+        print('Here Boss!')
         analyze_patterns(skip_analysis=args.skip_analysis)
     else:
         # Generate report only
@@ -237,5 +243,4 @@ def main():
     print(f"Results saved to {Config.RESULTS_DIR}")
     print(f"Report saved to {os.path.join(Config.RESULTS_DIR, 'analysis_report.md')}")
 
-if __name__ == "__main__":
-    main()
+main()
