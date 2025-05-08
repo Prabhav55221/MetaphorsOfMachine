@@ -1,1 +1,5 @@
-data/processed/*
+data/processed
+results/models
+results/tables
+results/*.md
+src/__pycache__
